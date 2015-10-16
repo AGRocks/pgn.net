@@ -5,13 +5,11 @@ open System.IO
 open ilf.pgn.Exceptions
 open ilf.pgn.PgnParsers.Game
 
+exception AppException of string
+
 type internal Parser() =
     member this.ReadFromFile(file:string) =  
-        let stream = new FileStream(file, FileMode.Open)
-        let result = this.ReadFromStream(stream)
-        stream.Close()
-
-        result
+        raise (AppException "Not supported in PCL version of pgn.NET")
 
     member this.ReadFromStream(stream: System.IO.Stream) =
         let parserResult = runParserOnStream pDatabase () "pgn" stream System.Text.Encoding.UTF8
@@ -41,11 +39,7 @@ type internal Parser() =
             }
 
     member this.ReadGamesFromFile(file: string) =
-        seq {
-            let charStream = new CharStream<Unit>(file, System.Text.Encoding.UTF8);
-            while not charStream.IsEndOfStream do
-                 yield this.ParseGame(charStream)
-            }
+        raise (AppException "Not supported in PCL version of pgn.NET")
 
     member this.ParseGame(charStream: CharStream<'a>) =
 

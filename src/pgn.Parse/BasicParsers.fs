@@ -21,8 +21,7 @@ let BP (p: Parser<_,_>) stream =
 let NBP (p: Parser<_,_>, name:string) stream =
     p stream // set a breakpoint here
     
-let D (p: Parser<_,_>, name:string) stream =
-    System.Console.WriteLine(name);
+let D (p: Parser<_,_>, name:string) stream =    
     p stream
 
 #if DEBUG

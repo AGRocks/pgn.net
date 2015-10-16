@@ -2,7 +2,6 @@
 using System.IO;
 using ilf.pgn.Data;
 using ilf.pgn.PgnParsers;
-using Microsoft.FSharp.Core;
 using Game = ilf.pgn.Data.Game;
 
 namespace ilf.pgn
@@ -25,7 +24,7 @@ namespace ilf.pgn
         public Database ReadFromFile(string fileName)
         {
             var p = new Parser();
-            return p.ReadFromFile(fileName);
+            return p.ReadFromFile<Database>(fileName);
         }
 
         /// <summary>
@@ -58,7 +57,7 @@ namespace ilf.pgn
         public IEnumerable<Game> ReadGamesFromFile(string file)
         {
             var p = new Parser();
-            foreach (var game in p.ReadGamesFromFile(file))
+            foreach (var game in p.ReadGamesFromFile<IEnumerable<Game>>(file))
                 yield return game;
         }
 

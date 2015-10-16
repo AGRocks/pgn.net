@@ -25,7 +25,7 @@ namespace ilf.pgn
         /// <param name="fileName">Name of the file to write to.</param>
         public PgnWriter(string fileName)
         {
-            _stream=new FileStream(fileName, FileMode.OpenOrCreate);
+            //_stream=new FileStream(fileName, FileMode.OpenOrCreate);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace ilf.pgn
             {
                 formatter.Format(game, writer);
             }
-            writer.Close();
+            writer.Dispose();
         }
     }
 }

@@ -71,10 +71,6 @@
       <Project>{b06a9f96-62f5-49c9-bfa8-58664d9a7462}</Project>
       <Name>pgn.NET</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\pgn.Parse\pgn.Parse.fsproj">
-      <Project>{90538968-8127-451b-945d-59707a910b63}</Project>
-      <Name>pgn.Parse</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

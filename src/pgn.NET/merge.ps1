@@ -2,6 +2,7 @@ param(
   [string]$target
 )
 
+$target = "net45"
 
 $frameworks = @{
   "net40" = "/targetplatform:v4"; 
@@ -14,10 +15,10 @@ if(!$frameworks.ContainsKey($target)) {
   echo "Merging files for $target"
 }
 
-$mergetool="..\..\tools\ILMerge.exe"
+$mergetool="bin\Release\ILMerge.exe"
 $binFolder="bin\Release"
 
-& $mergetool /target:library `
+echo $mergetool /target:library `
    $binFolder\pgn.NET.dll `
    $binFolder\pgn.Data.dll `
    $binFolder\pgn.Parse.dll `
